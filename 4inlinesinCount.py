@@ -42,8 +42,17 @@ def printBoard(board):
 def game():
 
     global turn  # si no hay error en la funcion victoria
+    global diccionario # si no hay error en la funcion victoria
 
     turn = 'X'
+
+    # nombres asociados a la ficha:
+
+    nombre1 = input('Teclee su nombre. Jugaras con '+ turn + ': ')
+    nombre2 = input('Teclee su nombre. Jugaras con O: ')
+    diccionario = {'X':nombre1,'O':nombre2}
+
+
 
     while True:
         printBoard(theBoard)
