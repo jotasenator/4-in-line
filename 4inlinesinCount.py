@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-# adaptacion de Tic Tac Toe por James Shah https://dev.to/jamesshah/the-classic-tictactoe-game-in-python-cpi
-# Implementacion de humano vs humano del juego 4 en linea
+# from Tic Tac Toe por James Shah https://dev.to/jamesshah/the-classic-tictactoe-game-in-python-cpi
+#  human vs human implementation of 4 in line game
 
 
 theBoard = {'36': ' ', '37': ' ', '38': ' ', '39': ' ', '40': ' ', '41': ' ', '42': ' ',
@@ -41,12 +41,12 @@ def printBoard(board):
 
 def game():
 
-    global turn  # si no hay error en la funcion victoria
-    global diccionario # si no hay error en la funcion victoria
+    global turn  # to avoid error in function victoria
+    global diccionario # to avoid error in function victoria
 
     turn = 'X'
 
-    # nombres asociados a la ficha:
+    # players ' names:
 
     nombre1 = input('Teclee su nombre. Jugaras con '+ turn + ': ')
     nombre2 = input('Teclee su nombre. Jugaras con O: ')
@@ -60,7 +60,7 @@ def game():
 
         move = input()
 
-        try:  # evitando que el programa se rompa si move tomaun valor distinto de numeros 1 a 42
+        try:  # catching error if we enter different value of 1-42
 
             lista_move = ['1', '2', '3', '4', '5', '6', '7']
 
@@ -73,7 +73,7 @@ def game():
 
                     print("..you can't do that.\nMove to which place?")
 
-                    continue  # sino cuando turn tomaria no seria la misma ficha de juego
+                    continue  # for keeping  the same player
 
             elif move not in lista_move:
 
@@ -83,16 +83,16 @@ def game():
                 else:
                     print("...you can't do that :).\nMove to which place?")
 
-                    continue  # sino cuando turn tomaria no seria la misma ficha de juego
-        except KeyError:  # capturando el error cuando move es distinto de numeros 1 a 42
+                    continue  # for keeping  the same player
+        except KeyError:  # capturing error differetn value 1 a 42
 
             print("..you can't do that either.\nMove to which place?")
 
-            continue  # sino cuando turn tomaria no seria la misma ficha de juego
+            continue  # for keeping  the same player
 
-    # Despues de 7 jugadas ya existe posibilidad de que el primer jugador gane
+    # after seven moves there is a chance to win
 
-        # horizontales
+        # horizontal
         cabezasH = [1, 8, 15, 22, 29, 36]
 
         lista = [i for i in range(1, 43)]
@@ -107,7 +107,7 @@ def game():
                     victory()
                     play_again()
 
-        # verticales
+        # vertical
         intervalos = [i for i in range(1, 22)]
 
         for numeroV in intervalos:
@@ -118,7 +118,7 @@ def game():
                 victory()
                 play_again()
 
-        # diagonales
+        # diagonal
 
         lista_diagonal1 = [1, 2, 3, 4, 8, 9, 10, 11, 15, 16, 17, 18]
         lista_diagonal2 = [4, 5, 6, 7, 11, 12, 13, 18, 19, 20, 14, 21]
@@ -148,13 +148,13 @@ def game():
                 tie()
                 play_again()
 
-# el cambio de la ficha que le toca en turno!!!
+# to switch the player turn!!!
         if turn == 'O':
             turn = 'X'
         else:
             turn = 'O'
 
-# si hay victoria
+# if there is a victory then...
 
 
 def victory():
@@ -163,7 +163,7 @@ def victory():
     print("\nGame Over.\n")
     print(" **** " + turn + " won. ****")
 
-# si hay empate
+# if no winner after 42 moves then its a tie
 
 
 def tie():
@@ -172,7 +172,7 @@ def tie():
     print("\nGame Over.\n")
     print("It's a Tie!!")
 
-# si desea jugar de nuevo o no
+# if you wish to play again or not
 
 
 def play_again():
